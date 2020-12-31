@@ -10,7 +10,7 @@ const apps = [
     name: "child",
     entry: "//192.168.2.122:10200",
     container: "#frame",
-    activeRule: "/child",
+    activeRule: "#/child",
   },
 ]
 export default apps

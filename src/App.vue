@@ -15,6 +15,7 @@
 
 <script>
 import actions from "@/shared/actions";
+import startQiankun from "@/micro"
 
 export default {
   name: 'App',
@@ -46,6 +47,7 @@ export default {
     }
   },
    mounted() {
+        startQiankun()
         // 注册一个观察者函数
         actions.onGlobalStateChange((state, prevState) => {
             // state: 变更后的状态; prevState: 变更前的状态
