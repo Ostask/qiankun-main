@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import actions from "@/shared/actions";
+import {sendIndex,watchIndex} from "@/utils/actions";
 import startQiankun from "@/micro"
 
 export default {
@@ -49,19 +49,18 @@ export default {
    mounted() {
         startQiankun()
         // 注册一个观察者函数
-        actions.onGlobalStateChange((state, prevState) => {
+        watchIndex((state, prevState) => {
             // state: 变更后的状态; prevState: 变更前的状态
             console.log("主应用观察者：number 改变前的值为 ", prevState.index);
             console.log("主应用观察者：登录状态发生改变，改变后的 number 的值为 ", state.index);
         });
-        actions.setGlobalState({ index:this.index });
+        sendIndex(this.index);
     },
     methods:{
         add(){
             this.index++;
-            
-            // 登录成功后，设置 token
-            actions.setGlobalState({ index:this.index });
+            //改变index状态
+            sendIndex(this.index);
         }
     }
 }
