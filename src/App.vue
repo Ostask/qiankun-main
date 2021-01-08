@@ -29,11 +29,6 @@ export default {
           path: "/",
         },
         {
-          key: "Login",
-          title: "登录",
-          path: "/login",
-        },
-        {
           key: "childtestApp",
           title: "Vue 子应用主页",
           path: "/child",
